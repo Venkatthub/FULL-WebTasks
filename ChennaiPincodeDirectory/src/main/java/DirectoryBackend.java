@@ -11,14 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DirectoryBackend extends HttpServlet {
 
+	CityCodes codes;
+
+	@Override
+	public void init() throws ServletException {
+		codes = new CityCodes();
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		String userInput = req.getParameter("area");
-
-		CityCodes codes = new CityCodes();
 
 		for (String areaname : codes.chennaiCodes().keySet()) {
 
@@ -55,6 +60,12 @@ public class DirectoryBackend extends HttpServlet {
 			}
 		}
 
+	}
+
+	@Override
+	public void destroy() {
+		// Ending the life cycle
+		super.destroy();
 	}
 
 }
