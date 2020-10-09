@@ -1,8 +1,8 @@
-package phonebook;
+package directory.phonebook;
 
 import java.util.*;
 
-public class DirectoryBook {
+public class Contacts {
 
 	private static HashMap<String, String> book = new HashMap<>();
 

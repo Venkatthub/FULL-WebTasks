@@ -1,15 +1,16 @@
-package phonebook;
+package directory.phonebook;
 
 import java.util.*;
-import main.Options;
+
+import directory.Options;
 
 public class Directory implements Options {
 
 	private static String message = "Contact Not Found";
-	private static DirectoryBook phoneBook;
+	private static Contacts phoneBook;
 
 	public Directory() {
-		phoneBook = new DirectoryBook();
+		phoneBook = new Contacts();
 	}
 
 //	To add a contact in the phone book
