@@ -1,4 +1,5 @@
 package testClasses;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import main.phonebook.Directory;
+import directory.phonebook.Directory;
 
 @RunWith(Parameterized.class)
 public class TestAddMethod {
@@ -40,6 +41,6 @@ public class TestAddMethod {
 
 	@Test
 	public void testAddNumber() {
-		assertEquals(expected, direct.addNumber(name, number));
+		assertEquals(expected, direct.addContact(name, number));
 	}
 }

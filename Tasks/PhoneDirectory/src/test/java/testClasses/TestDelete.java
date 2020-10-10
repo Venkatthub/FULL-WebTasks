@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import main.phonebook.Directory;
+import directory.phonebook.Directory;
 
 @RunWith(Parameterized.class)
 public class TestDelete {
@@ -35,6 +35,6 @@ public class TestDelete {
 
 	@Test
 	public void testDeleteNumber() {
-		Assert.assertEquals(expected, direct.deleteNumber(name));
+		Assert.assertEquals(expected, direct.deleteContact(name));
 	}
 }

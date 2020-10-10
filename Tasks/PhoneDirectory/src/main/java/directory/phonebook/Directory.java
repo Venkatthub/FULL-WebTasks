@@ -15,7 +15,7 @@ public class Directory implements Options {
 
 //	To add a contact in the phone book
 	@Override
-	public String addNumber(String name, String number) {
+	public String addContact(String name, String number) {
 
 		if (number.length() > 10) {
 
@@ -26,7 +26,6 @@ public class Directory implements Options {
 			return "Duplicate Entry";
 
 		} else {
-
 			phoneBook.addContact(name.toLowerCase(), number);
 			return "Contact Added";
 		}
@@ -35,7 +34,7 @@ public class Directory implements Options {
 
 //	To update contact
 	@Override
-	public String editNumber(String name, String number) {
+	public String editContact(String name, String number) {
 
 		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
@@ -50,19 +49,25 @@ public class Directory implements Options {
 
 //	To display a number with given name
 	@Override
-	public String displayNumber(String name) {
+	public TreeMap<String, String> displayContact(String name) {
 
-		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
-			return phoneBook.getContacts().get(name.toLowerCase());
+		TreeMap<String, String> foundContacts = new TreeMap<>();
+
+		for (String contactName : phoneBook.getContacts().keySet()) {
+
+			if (contactName.toLowerCase().contains(name)) {
+
+				foundContacts.put(contactName, phoneBook.getContacts().get(contactName));
+			}
 		}
 
-		return message;
+		return foundContacts;
 
 	}
 
 //	To view all contacts
 	@Override
-	public Map<String, String> displayContacts() {
+	public Map<String, String> displayContact() {
 
 		return phoneBook.getContacts();
 
@@ -70,7 +75,7 @@ public class Directory implements Options {
 
 //	To delete a contact
 	@Override
-	public String deleteNumber(String name) {
+	public String deleteContact(String name) {
 
 		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 			phoneBook.removeContact(name);

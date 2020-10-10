@@ -4,14 +4,14 @@ import java.util.Map;
 
 public interface Options {
 
-	String addNumber(String name, String number);
-	
-	String editNumber(String name, String number);
-	
-	String deleteNumber(String name);
-	
-	String displayNumber(String name);
-	
-	Map<String, String> displayContacts();
-	
+	String addContact(String name, String number);
+
+	String editContact(String name, String number);
+
+	String deleteContact(String name);
+
+	Map<String, String> displayContact(String name);
+
+	Map<String, String> displayContact();
+
 }
