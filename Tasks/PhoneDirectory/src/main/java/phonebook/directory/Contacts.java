@@ -1,4 +1,4 @@
-package directory.phonebook;
+package phonebook.directory;
 
 import java.util.*;
 

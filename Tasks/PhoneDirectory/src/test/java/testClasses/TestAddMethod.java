@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import directory.phonebook.Directory;
+import phonebook.directory.Directory;
 
 @RunWith(Parameterized.class)
 public class TestAddMethod {

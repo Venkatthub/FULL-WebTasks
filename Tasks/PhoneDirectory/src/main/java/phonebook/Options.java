@@ -1,4 +1,4 @@
-package directory;
+package phonebook;
 
 import java.util.Map;
 

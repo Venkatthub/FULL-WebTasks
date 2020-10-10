@@ -1,6 +1,6 @@
-package directory;
+package phonebook;
 
-import directory.phonebook.Directory;
+import phonebook.directory.Directory;
 
 public class Demo {
 

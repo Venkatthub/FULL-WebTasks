@@ -1,8 +1,8 @@
-package directory.phonebook;
+package phonebook.directory;
 
 import java.util.*;
 
-import directory.Options;
+import phonebook.Options;
 
 public class Directory implements Options {
 
