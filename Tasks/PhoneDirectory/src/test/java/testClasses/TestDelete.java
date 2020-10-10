@@ -14,16 +14,16 @@ import phonebook.directory.Directory;
 public class TestDelete {
 	private static Directory direct;
 	private String name;
-	private String expected;
+	private boolean expected;
 
 	public TestDelete(String expected, String name) throws Exception {
 		this.name = name;
-		this.expected = expected;
+		this.expected = Boolean.parseBoolean(expected);
 	}
 
 	@Parameters
 	public static Collection<String[]> parametersMethod() {
-		String arr[][] = { { "Deleted", "venkat" }, { "Deleted", "murali" }, { "Deleted", "bala" } };
+		String arr[][] = { { "true", "venkat" }, { "true", "murali" }, { "true", "bala" } };
 		return Arrays.asList(arr);
 
 	}

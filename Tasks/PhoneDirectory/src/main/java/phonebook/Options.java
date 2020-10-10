@@ -4,11 +4,11 @@ import java.util.Map;
 
 public interface Options {
 
-	String addContact(String name, long number);
+	boolean addContact(String name, String number);
 
-	String editContact(String name, long number);
+	boolean editContact(String name, String number);
 
-	String deleteContact(String name);
+	boolean deleteContact(String name);
 
 	Map<String, Long> displayContact(String name);
 

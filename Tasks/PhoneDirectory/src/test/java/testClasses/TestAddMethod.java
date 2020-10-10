@@ -17,19 +17,19 @@ public class TestAddMethod {
 
 	private static Directory direct;
 	private String name;
-	private long number;
-	private String expected;
+	private String number;
+	private boolean expected;
 
-	public TestAddMethod(String expected, String name, long number) throws Exception {
+	public TestAddMethod(String expected, String name, String number) throws Exception {
 		this.name = name;
 		this.number = number;
-		this.expected = expected;
+		this.expected = Boolean.parseBoolean(expected);
 	}
 
 	@Parameters
 	public static Collection<String[]> parametersMethod() {
-		String arr[][] = { { "Contact Added", "venkat", "7871246686" }, { "Contact Added", "murali", "8015512560" },
-				{ "Contact Added", "bala", "8122174864" } };
+		String arr[][] = { { "true", "venkat", "7871246686" }, { "true", "murali", "8015512560" },
+				{ "true", "bala", "8122174864" } };
 		return Arrays.asList(arr);
 
 	}

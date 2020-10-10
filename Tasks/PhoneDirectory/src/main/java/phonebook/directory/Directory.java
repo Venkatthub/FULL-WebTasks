@@ -6,7 +6,11 @@ import phonebook.Options;
 
 public class Directory implements Options {
 
-	private final static String errorMessage = "Contact Not Found";
+	public String Message;
+	private static String successMessage = "Success";
+	private static String errorMessage_1 = "Invalid Entry";
+	private static String errorMessage_2 = "Duplicate Entry";
+	private static String errorMessage_3 = "Not Found";
 	private static Contacts phoneBook;
 
 	public Directory() {
@@ -15,35 +19,40 @@ public class Directory implements Options {
 
 //	To add a contact in the phone book
 	@Override
-	public String addContact(String name, long number) {
+	public boolean addContact(String name, String number) {
 
-		if (number < 100000000000L && number > 1000000000) {
+		if (number.length() < 10 || number.length() > 10) {
 
-			return "Invalid Number";
+			this.Message = errorMessage_1;
+			return false;
 
 		} else if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
-			return "Duplicate Entry";
+			this.Message = errorMessage_2;
+			return false;
 
 		} else {
-			phoneBook.addContact(name.toLowerCase(), number);
-			return "Contact Added";
+			phoneBook.addContact(name.toLowerCase(), Long.parseLong(number));
+			this.Message = successMessage;
+			return true;
 		}
 
 	}
 
 //	To update contact
 	@Override
-	public String editContact(String name, long number) {
+	public boolean editContact(String name, String number) {
 
 		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
-			phoneBook.addContact(name.toLowerCase(), number);
-			return "Update Success";
+			phoneBook.addContact(name.toLowerCase(), Long.parseLong(number));
+			this.Message = successMessage;
+			return true;
 
 		}
 
-		return errorMessage;
+		this.Message = errorMessage_1;
+		return false;
 
 	}
 
@@ -58,7 +67,14 @@ public class Directory implements Options {
 			if (contactName.toLowerCase().contains(name)) {
 
 				foundContacts.put(contactName, phoneBook.getContacts().get(contactName));
+
 			}
+		}
+
+		if (foundContacts.isEmpty()) {
+			this.Message = errorMessage_3;
+		} else {
+			this.Message = successMessage;
 		}
 
 		return foundContacts;
@@ -75,14 +91,16 @@ public class Directory implements Options {
 
 //	To delete a contact
 	@Override
-	public String deleteContact(String name) {
+	public boolean deleteContact(String name) {
 
 		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 			phoneBook.removeContact(name);
-			return "Deleted";
+			this.Message = successMessage;
+			return true;
 		}
 
-		return errorMessage;
+		this.Message = errorMessage_3;
+		return false;
 
 	}
 
