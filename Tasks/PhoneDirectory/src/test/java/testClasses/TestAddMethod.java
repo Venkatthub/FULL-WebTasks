@@ -17,10 +17,10 @@ public class TestAddMethod {
 
 	private static Directory direct;
 	private String name;
-	private String number;
+	private long number;
 	private String expected;
 
-	public TestAddMethod(String expected, String name, String number) throws Exception {
+	public TestAddMethod(String expected, String name, long number) throws Exception {
 		this.name = name;
 		this.number = number;
 		this.expected = expected;

@@ -15,11 +15,11 @@ public class Directory implements Options {
 
 //	To add a contact in the phone book
 	@Override
-	public String addContact(String name, String number) {
+	public String addContact(String name, long number) {
 
-		if (number.length() > 10) {
+		if (number < 100000000000L && number > 1000000000) {
 
-			return "Invalid Phone Number";
+			return "Invalid Number";
 
 		} else if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
@@ -34,7 +34,7 @@ public class Directory implements Options {
 
 //	To update contact
 	@Override
-	public String editContact(String name, String number) {
+	public String editContact(String name, long number) {
 
 		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
@@ -49,9 +49,9 @@ public class Directory implements Options {
 
 //	To display a number with given name
 	@Override
-	public TreeMap<String, String> displayContact(String name) {
+	public Map<String, Long> displayContact(String name) {
 
-		TreeMap<String, String> foundContacts = new TreeMap<>();
+		Map<String, Long> foundContacts = new TreeMap<>();
 
 		for (String contactName : phoneBook.getContacts().keySet()) {
 
@@ -67,7 +67,7 @@ public class Directory implements Options {
 
 //	To view all contacts
 	@Override
-	public Map<String, String> displayContact() {
+	public Map<String, Long> displayContact() {
 
 		return phoneBook.getContacts();
 
