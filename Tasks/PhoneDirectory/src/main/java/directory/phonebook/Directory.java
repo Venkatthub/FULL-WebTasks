@@ -6,7 +6,7 @@ import directory.Options;
 
 public class Directory implements Options {
 
-	private static String message = "Contact Not Found";
+	private final static String errorMessage = "Contact Not Found";
 	private static Contacts phoneBook;
 
 	public Directory() {
@@ -43,7 +43,7 @@ public class Directory implements Options {
 
 		}
 
-		return message;
+		return errorMessage;
 
 	}
 
@@ -82,7 +82,7 @@ public class Directory implements Options {
 			return "Deleted";
 		}
 
-		return message;
+		return errorMessage;
 
 	}
 
