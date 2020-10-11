@@ -38,7 +38,7 @@ public class EditContact extends HttpServlet {
 		String name = request.getParameter("cName");
 		String number = request.getParameter("cNumber");
 
-		boolean status = book.editContact(name, number);
+		boolean status = book.editContact(name.toLowerCase(), number);
 
 		if (status) {
 

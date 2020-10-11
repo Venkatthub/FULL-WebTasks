@@ -17,14 +17,14 @@
 	<%
 		String name = request.getParameter("name");
 	String number = request.getParameter("number");
-	if (name.isEmpty() && number.isEmpty()) {
+	if (name.isEmpty() || number.isEmpty()) {
 		response.sendRedirect("index.jsp");
 	}
 	%>
 	<p align="center">
 		<B>Review Changes</B><br> <br>
 		<%
-			out.print(name.toUpperCase() + " : " + book.displayContact().get(name));
+			out.print(name.toUpperCase() + " : " + book.displayContact().get(name.toLowerCase()));
 		%><br>
 		<%
 			out.println(" NEW NUMBER :" + number);
@@ -34,9 +34,12 @@
 	<form action="/edit">
 		<input type="text" name="cName" value=<%=name%>> <input
 			type="text" name="cNumber" value=<%=number%>> <input
-			type="submit" value="Confirm" /> <input type="submit" value="Cancel"
-			formaction="index.jsp" />
+			type="submit" value="Confirm" />
 	</form>
+	<br>
+	<br>
+	<a href="index.jsp"><button>Back</button></a>
+
 
 
 </body>
