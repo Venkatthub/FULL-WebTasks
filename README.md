@@ -4,6 +4,7 @@
   * Sample program to explain use_case of RequestDispatcher
   
   # -> Tasks
-  * Phone Directory with test suite 
+  * Phone Directory - Project with JSP and Servlets
+  
 
 
