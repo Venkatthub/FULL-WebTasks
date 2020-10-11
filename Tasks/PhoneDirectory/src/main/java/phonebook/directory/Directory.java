@@ -43,7 +43,12 @@ public class Directory implements Options {
 	@Override
 	public boolean editContact(String name, String number) {
 
-		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
+		if (number.length() < 10 || number.length() > 10 || number.length() == 0) {
+
+			this.Message = errorMessage_1;
+			return false;
+
+		} else if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
 
 			phoneBook.addContact(name.toLowerCase(), Long.parseLong(number));
 			this.Message = successMessage;
@@ -58,13 +63,13 @@ public class Directory implements Options {
 
 //	To display a number with given name
 	@Override
-	public Map<String, Long> displayContact(String name) {
+	public TreeMap<String, Long> displayContact(String name) {
 
-		Map<String, Long> foundContacts = new TreeMap<>();
+		TreeMap<String, Long> foundContacts = new TreeMap<>();
 
 		for (String contactName : phoneBook.getContacts().keySet()) {
 
-			if (contactName.toLowerCase().contains(name)) {
+			if (contactName.contains(name.toLowerCase())) {
 
 				foundContacts.put(contactName, phoneBook.getContacts().get(contactName));
 
@@ -93,13 +98,13 @@ public class Directory implements Options {
 	@Override
 	public boolean deleteContact(String name) {
 
-		if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
-			phoneBook.removeContact(name);
+		if (name.isEmpty()) {
+			this.Message = errorMessage_1;
+		} else if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
+			phoneBook.removeContact(name.toLowerCase());
 			this.Message = successMessage;
 			return true;
 		}
-
-		this.Message = errorMessage_3;
 		return false;
 
 	}

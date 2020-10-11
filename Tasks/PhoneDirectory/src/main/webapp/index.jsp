@@ -12,8 +12,12 @@
 <body>
 	<h1 align="center">PhoneBook</h1>
 	<div align="left">
-		<h4>Your Contacts</h4>
-
+		<table>
+			<tr>
+				<td><h4>Your Contacts</h4></td>
+				<td><a href="AllContacts.jsp"><button>Get Numbers</button></a></td>
+			</tr>
+		</table>
 		<%!Directory dir = new Directory();%>
 		<%
 			if (dir.displayContact().isEmpty()) {
@@ -31,7 +35,7 @@
 	<br>
 	<br>
 	<div align="center">
-		<form action="AddContact.jsp">
+		<form action="/add">
 			<header>ADD CONTACT</header>
 			Name <input type="text" name="name"> Number<input
 				type="number" name="number">
@@ -47,21 +51,18 @@
 		</form>
 
 		<br> <br>
-		<form action="DeleteContact.jsp">
+		<form action="/delete">
 			<header>DELETE CONTACT</header>
 			Name<input type="text" name="name"> <input type="submit"
 				value="Delete">
 		</form>
 		<br> <br>
 
-		<form action="DisplayContacts.jsp">
+		<form action="DisplayContact.jsp">
 			<header>DISPLAY CONTACT</header>
 			Name<input type="text" name="name"> <input type="submit"
 				value="Display">
 		</form>
 	</div>
-
-
-
 </body>
 </html>

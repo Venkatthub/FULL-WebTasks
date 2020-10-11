@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%!Directory book;
+	static boolean confirm;
 
 	public void init() throws ServletException {
 		book = new Directory();
@@ -16,17 +17,27 @@
 	<%
 		String name = request.getParameter("name");
 	String number = request.getParameter("number");
-	boolean status = book.editContact(name, number);
-	if (status) {
-	%><script type="text/javascript">
-		alert("Edited Successfully");
-	</script>
-	<%
+	if (name.isEmpty() && number.isEmpty()) {
 		response.sendRedirect("index.jsp");
-	} else {
-
-	response.sendError(300, book.Message);
 	}
 	%>
+	<p align="center">
+		<B>Review Changes</B><br> <br>
+		<%
+			out.print(name.toUpperCase() + " : " + book.displayContact().get(name));
+		%><br>
+		<%
+			out.println(" NEW NUMBER :" + number);
+		%>
+
+		<br> <br>
+	<form action="/edit">
+		<input type="text" name="cName" value=<%=name%>> <input
+			type="text" name="cNumber" value=<%=number%>> <input
+			type="submit" value="Confirm" /> <input type="submit" value="Cancel"
+			formaction="index.jsp" />
+	</form>
+
+
 </body>
 </html>
