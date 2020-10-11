@@ -48,9 +48,9 @@ public class Directory implements Options {
 			this.Message = errorMessage_1;
 			return false;
 
-		} else if (phoneBook.getContacts().containsKey(name.toLowerCase())) {
+		} else if (phoneBook.getContacts().containsKey(name)) {
 
-			phoneBook.addContact(name.toLowerCase(), Long.parseLong(number));
+			phoneBook.addContact(name, Long.parseLong(number));
 			this.Message = successMessage;
 			return true;
 
