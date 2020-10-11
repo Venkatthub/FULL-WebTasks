@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Deleting Contact</title>
 </head>
 <body>
 
@@ -18,10 +18,14 @@
 		String name = request.getParameter("name");
 	boolean status = book.deleteContact(name);
 	if (status) {
+	%><script type="text/javascript">
+		alert("Contact Deleted");
+	</script>
+	<%
 		response.sendRedirect("index.jsp");
 	} else {
 
-		response.sendError(300, book.Message);
+	response.sendError(300, book.Message);
 	}
 	%>
 </body>

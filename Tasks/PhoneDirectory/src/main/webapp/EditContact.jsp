@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Editing Contact</title>
 </head>
 <body>
 	<%!Directory book;
@@ -18,10 +18,14 @@
 	String number = request.getParameter("number");
 	boolean status = book.editContact(name, number);
 	if (status) {
+	%><script type="text/javascript">
+		alert("Edited Successfully");
+	</script>
+	<%
 		response.sendRedirect("index.jsp");
 	} else {
 
-		response.sendError(300, book.Message);
+	response.sendError(300, book.Message);
 	}
 	%>
 </body>
