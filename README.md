@@ -9,11 +9,12 @@
     
    -------------------------------------------------------------------------------------------------------------
  
-  * [PhoneBook](https://phonebook-131020.el.r.appspot.com) - [_Project with JSP and Servlets_](PhoneBook/src)
+  * [PhoneBook](https://phonebook-131020.el.r.appspot.com) - [_Project with JSP and Servlets_](PhoneBook/src)  
+  ![App Icon](PhoneBook/src/main/webapp/favicon.ico)
   
    -------------------------------------------------------------------------------------------------------------
   
-  ![App Icon](PhoneBook/src/main/webapp/favicon.ico)
+
   
 
 
