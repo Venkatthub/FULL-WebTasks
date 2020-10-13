@@ -8,6 +8,10 @@
 <title>Editing Contact</title>
 </head>
 <body>
+
+
+
+
 	<%!Directory book;
 	static boolean confirm;
 
