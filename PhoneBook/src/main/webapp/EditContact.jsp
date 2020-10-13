@@ -1,3 +1,4 @@
+<%@page import="phonebook.Options"%>
 <%@page import="phonebook.directory.Contacts"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -11,13 +12,16 @@
 <body>
 
 	<a href="index.jsp"><button>Home</button></a>
+	<%!static Options book;
+	static int indexToEdit;
+	Contacts contact;%>
 	<%
-		PhoneBook book = (PhoneBook) request.getServletContext().getAttribute("option");
-	int indexToEdit = Integer.parseInt(request.getParameter("editIndex"));
-	Contacts contact = book.getContact().get(indexToEdit);
+		book = (PhoneBook) application.getAttribute("option");
+	indexToEdit = Integer.parseInt(request.getParameter("editIndex"));
+	contact = book.getContact().get(indexToEdit);
 	%>
 
-	<h2 align="center">Review Changes</h2>
+	<h2 align="center">Contact</h2>
 
 	<p align="center">
 		<%=contact%></p>
@@ -33,10 +37,11 @@
 			value="<%=contact.getNumber()%>"> <br> <input
 			type="hidden" name="index" value="<%=indexToEdit%>"> <input
 			type="hidden" name="function" value="edit"><input
-			type="submit" value="Edit"><a href="AllContacts.jsp"><button>Cancel</button></a>
+			type="submit" value="Confirm"><a href="AllContacts.jsp"><button>Cancel</button></a>
 
 
 	</form>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package phonebook;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +18,10 @@ import phonebook.directory.PhoneBook;
 public class Directory extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static Options book;
 	private static int index;
 	private static String name;
 	private static String number;
+	private static Options book;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -29,9 +30,9 @@ public class Directory extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		book = (PhoneBook) request.getServletContext().getAttribute("option");
-		String operation = request.getParameter("function");
+		book = (Options) request.getServletContext().getAttribute("option");
 
+		String operation = request.getParameter("function");
 		if (operation.contains("add")) {
 
 			name = request.getParameter("name").toLowerCase();

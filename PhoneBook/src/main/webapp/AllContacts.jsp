@@ -1,3 +1,4 @@
+<%@page import="phonebook.Options"%>
 <%@page import="phonebook.directory.Contacts"%>
 <%@page import="phonebook.directory.PhoneBook"%>
 <%@ page import="java.util.*"%>
@@ -14,15 +15,12 @@
 	<h3 align="center">Your Contacts</h3>
 	<a href="index.jsp"><button>HOME</button></a>
 
-	<%
-		ServletContext app = request.getServletContext();
-	PhoneBook book = (PhoneBook) app.getAttribute("option");
-
-	String action;
-	%>
+	<%!Options book;
+	String action;%>
 	<table>
 		<%
-			for (int i = 0; i < book.getContact().size(); i++) {
+			book = (PhoneBook) application.getAttribute("option");
+		for (int i = 0; i < book.getContact().size(); i++) {
 		%>
 
 		<tr>
