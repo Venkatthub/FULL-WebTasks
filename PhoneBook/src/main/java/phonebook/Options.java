@@ -6,7 +6,7 @@ import phonebook.directory.Contacts;
 
 public interface Options {
 
-	String message = "Invalid Entry";
+	String MESSAGE = "Invalid Entry";
 
 	void addContact(String name, String number);
 

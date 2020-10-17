@@ -1,3 +1,4 @@
+<%@page import="phonebook.directory.UsersDB"%>
 <%@page import="phonebook.Options"%>
 <%@page import="phonebook.directory.Contacts"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,37 +12,58 @@
 </head>
 <body>
 
-	<a href="index.jsp"><button>Home</button></a>
-	<%!static Options book;
-	static int indexToEdit;
+	<%@ include file="header.html"%>
+
+	<a href="HomePage.jsp"><button>Home</button></a>
+
+	<%!PhoneBook book;
+
+	int indexToEdit;
+
 	Contacts contact;%>
+
 	<%
-		book = (PhoneBook) application.getAttribute("option");
+		HttpSession userSession = request.getSession(false);
+
+	String sessionName = (String) userSession.getAttribute("UserName");
+
+	book = UsersDB.getInstance(sessionName);
+
 	indexToEdit = Integer.parseInt(request.getParameter("editIndex"));
+
 	contact = book.getContact().get(indexToEdit);
 	%>
+
+	<h6 style="margin-left: 1000px">
+		User :
+		<%=sessionName%>
+	</h6>
+	<br>
+	<br>
 
 	<h2 align="center">Contact</h2>
 
 	<p align="center">
+
 		<%=contact%></p>
 
 
 	<h3>EDIT TO CHANGE</h3>
 
-	<form action="/Directory" method="post">
+	<form action="/edit" method="post">
 
 		Name<input type="text" name="name" value="<%=contact.getName()%>">
 
 		Number<input type="text" name="number"
 			value="<%=contact.getNumber()%>"> <br> <input
-			type="hidden" name="index" value="<%=indexToEdit%>"> <input
-			type="hidden" name="function" value="edit"><input
-			type="submit" value="Confirm"><a href="AllContacts.jsp"><button>Cancel</button></a>
+			type="hidden" name="index" value="<%=indexToEdit%>" /> <input
+			type="submit" value="Confirm" /> <a href="AllContacts.jsp"><button>Cancel</button></a>
 
 
 	</form>
 
+	<br><br>
+	<footer style="background-color: #F89246; padding: 50px;" ></footer>
 
 </body>
 </html>

@@ -1,6 +1,3 @@
-<%@page import="phonebook.Options"%>
-<%@page import="phonebook.directory.Contacts"%>
-<%@page import="phonebook.directory.PhoneBook"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,34 +7,29 @@
 <title>PhoneBook</title>
 </head>
 <body>
-	<h1 align="center">PhoneBook</h1>
-	<h3>ADD CONTACT</h3>
-	<form action="/Directory" method="post">
-		Name <input type="text" name="name" /> Number<input type="number"
-			name="number" /> <input type="hidden" name="function" value="add" />
-		<input type="submit" value="ADD" />
-	</form>
-	<br>
-	<h4>Your Contacts</h4>
-	<a href="AllContacts.jsp"><button>Get Numbers</button></a>
-	<%!Options dir = new PhoneBook();%>
-	<%
-		application.setAttribute("option", dir);
-	if (dir.getContact().isEmpty()) {
-	%>
 
-	<p>No Contacts to display !</p>
+	<%@ include file="header.html"%>
 
-	<%
-		} else {
-	for (Contacts contact : dir.getContact()) {
-	%>
-	<p><%=contact.getName().toUpperCase()%></p>
-	<br>
-	<%
-		}
-	}
-	%>
+	<div style="margin-left: 1000px;">
+		<a
+		href="SignUp.jsp"><button>New User</button></a></div>
+
+
+	<div align="center" style="margin-top: 70px;">
+
+		<form action="/login" method="post">
+
+			Name <input type="text" name="userName" /> Password <input
+				type="password" name="password" /><br> <br> <input
+				type="submit" value="Login">
+
+		</form>
+
+
+	</div>
+	
+	<br><br>
+	<footer style="background-color: #F89246; padding: 50px;" ></footer>
 
 </body>
 </html>
