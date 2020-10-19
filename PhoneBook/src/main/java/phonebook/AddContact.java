@@ -42,7 +42,7 @@ public class AddContact extends HttpServlet {
 
 		book = UsersDB.getInstance(userSession);
 
-		if (name.isEmpty() || number.isEmpty() || number.length() > 10 || number.length() < 10) {
+		if (number.length() > 10 || number.length() < 10 || name.isEmpty() || number.isEmpty()) {
 
 			response.sendError(404, Options.MESSAGE);
 

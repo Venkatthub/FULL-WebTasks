@@ -8,11 +8,11 @@
 </head>
 <body>
 
-	<%@ include file="header.html"%>
+	<header><%@ include file="header.html"%></header>
 
-	<div style="margin-left: 1000px;">
-		<a
-		href="SignUp.jsp"><button>New User</button></a></div>
+	<div style="margin-left: 700px;">
+		<a href="SignUp.jsp"><button>New User</button></a>
+	</div>
 
 
 	<div align="center" style="margin-top: 70px;">
@@ -27,9 +27,6 @@
 
 
 	</div>
-	
-	<br><br>
-	<footer style="background-color: #F89246; padding: 50px;" ></footer>
 
 </body>
 </html>

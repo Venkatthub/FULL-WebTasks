@@ -8,13 +8,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>PhoneBook</title>
+<title>PhoneBook - Home</title>
 </head>
 <body>
 
 	<%@ include file="header.html"%>
 
-	<div style="margin-left: 1000px;">
+	<div style="margin-left: 600px;">
 		<a href="/logout"><button>Logout</button></a>
 	</div>
 
@@ -34,8 +34,8 @@
 
 						<form action="/AddContact" method="post">
 
-							Name <br> <input type="text" name="name" /><br> <br>
-							Phone number<br> <input type="number" name="number" /><br>
+							Name *<br> <input type="text" name="name" /><br> <br>
+							Phone number *<br> <input type="number" name="number" /><br>
 							<br> <input type="submit" value="ADD" onclick="addValue()" />
 
 						</form>
@@ -64,6 +64,8 @@
  book = UsersDB.getInstance(name);
 
  flag = book.getContact().isEmpty();
+
+ pageContext.setAttribute("flag", flag, PageContext.PAGE_SCOPE);
  %>
 				<h6 style="margin-left: 100px">
 					User :
@@ -87,8 +89,11 @@
 
 
 						<p>
+
 							<%=contact.getName().toUpperCase()%>
+
 						</p>
+
 						<%
 							}
 						%>
@@ -102,11 +107,6 @@
 		</tr>
 
 	</table>
-
-
-	<br>
-	<br>
-	<footer style="background-color: #F89246; padding: 50px;"></footer>
 
 </body>
 </html>

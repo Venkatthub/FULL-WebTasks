@@ -17,7 +17,6 @@ import phonebook.directory.UsersDB;
 public class SignUp extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	DisplayMessageThread thread;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,19 +24,15 @@ public class SignUp extends HttpServlet {
 		String name = req.getParameter("userName").toLowerCase();
 		String password = req.getParameter("password");
 
-		boolean userNameCheck = AuthenticationCheck.authenticateUser(name, password);
+		boolean userNameCheck = AuthenticationCheck.authenticateUser(name);
 
 		if (userNameCheck) {
 
-			resp.setStatus(204);
+			resp.setStatus(403);
 
-			resp.getWriter().println("User Name already taken. please enter a new one");
+			resp.getWriter().println("<div align=\"center\">User Name already taken. please enter a new one</div>");
 
-			thread = new DisplayMessageThread();
-
-			thread.start();
-
-			req.getRequestDispatcher("SignUp.jsp").forward(req, resp);
+			req.getRequestDispatcher("SignUp.jsp").include(req, resp);
 
 		} else {
 
@@ -49,13 +44,9 @@ public class SignUp extends HttpServlet {
 
 				UsersDB.setNewUser(name, password);
 
-				resp.getWriter().println("Account Created ! Please login to continue");
+				resp.getWriter().println("<div align=\"center\">Account Created ! Please login to continue</div>");
 
-				thread = new DisplayMessageThread();
-
-				thread.start();
-
-				resp.sendRedirect("index.jsp");
+				resp.getWriter().println("<a href=\"index.jsp\">Login</a>");
 
 			}
 

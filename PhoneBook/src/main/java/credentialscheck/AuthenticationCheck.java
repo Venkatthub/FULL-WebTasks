@@ -18,4 +18,18 @@ public class AuthenticationCheck {
 
 	}
 
+	public static boolean authenticateUser(String name) {
+
+		if (UsersDB.getUsers().containsKey(name)) {
+
+			return true;
+
+		} else {
+
+			return false;
+
+		}
+
+	}
+
 }

@@ -5,12 +5,12 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>PhoneBook - Create Account</title>
 </head>
 
 <body>
 
-	<%@ include file="header.html"%>
+	<header><%@ include file="header.html"%></header>
 
 	<div style="margin-left: 10px; margin-top: 20px;">
 		<a href="index.jsp"><button>Back</button></a>
@@ -28,9 +28,6 @@
 		</form>
 
 	</div>
-
-	<br><br>
-	<footer style="background-color: #F89246; padding: 50px;" ></footer>
 
 </body>
 

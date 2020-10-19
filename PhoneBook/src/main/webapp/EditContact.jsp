@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Contact</title>
+<title>PhoneBook - Edit Contact</title>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
 	contact = book.getContact().get(indexToEdit);
 	%>
 
-	<h6 style="margin-left: 1000px">
+	<h6 style="margin-left: 600px">
 		User :
 		<%=sessionName%>
 	</h6>
@@ -61,9 +61,6 @@
 
 
 	</form>
-
-	<br><br>
-	<footer style="background-color: #F89246; padding: 50px;" ></footer>
 
 </body>
 </html>

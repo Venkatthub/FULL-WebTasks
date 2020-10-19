@@ -12,7 +12,7 @@
 
 <meta charset="ISO-8859-1">
 
-<title>ALL CONTACTS</title>
+<title>PhoneBook - All Contacts</title>
 
 </head>
 
@@ -36,7 +36,7 @@
 	book = UsersDB.getInstance(sessionName);
 	%>
 
-	<h6 style="margin-left: 1000px">
+	<h6 style="margin-left: 600px">
 		User :
 		<%=sessionName%>
 	</h6>
@@ -91,10 +91,6 @@
 	</table>
 
 
-
-	<br>
-	<br>
-	<footer style="background-color: #F89246; padding: 50px;"></footer>
 
 </body>
 </html>
