@@ -19,9 +19,11 @@
 
 		<form action="/login" method="post">
 
-			Name <input type="text" name="userName" /> Password <input
-				type="password" name="password" /><br> <br> <input
-				type="submit" value="Login">
+			<label for="userName">Name : </label><input type="text"
+				name="userName" required="required" placeholder="Enter Name" /> <label
+				for="password">Password :</label> <input type="password"
+				name="password" required="required" placeholder="Enter Password" /><br>
+			<br> <input type="submit" value="Login">
 
 		</form>
 

@@ -21,8 +21,11 @@
 
 		<form action="/CreateAccount" method="post">
 
-			Enter UserName <input type="text" name="userName"> Enter
-			Password <input type="password" name="password"><br> <br>
+			<label for="userName">Enter UserName :</label><input type="text"
+				name="userName" placeholder="Enter your Username"
+				required="required"> <label for="password">Enter
+				Password :</label> <input type="password" name="password"
+				placeholder="New Password" required="required"><br> <br>
 			<input type="submit" value="Create Account">
 
 		</form>

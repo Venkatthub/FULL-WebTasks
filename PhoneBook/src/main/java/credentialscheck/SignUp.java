@@ -36,21 +36,14 @@ public class SignUp extends HttpServlet {
 
 		} else {
 
-			if (name.isEmpty() || password.isEmpty() || name == "" || password == "") {
+			UsersDB.setNewUser(name, password);
 
-				resp.sendError(400, "Invalid Entry");
+			resp.getWriter().println("<div align=\"center\">Account Created ! Please login to continue</div>");
 
-			} else {
-
-				UsersDB.setNewUser(name, password);
-
-				resp.getWriter().println("<div align=\"center\">Account Created ! Please login to continue</div>");
-
-				resp.getWriter().println("<a href=\"index.jsp\">Login</a>");
-
-			}
+			resp.getWriter().println("<a href=\"index.jsp\">Login</a>");
 
 		}
 
 	}
+
 }

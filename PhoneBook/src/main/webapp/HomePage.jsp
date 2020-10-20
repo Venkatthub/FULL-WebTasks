@@ -34,9 +34,11 @@
 
 						<form action="/AddContact" method="post">
 
-							Name *<br> <input type="text" name="name" /><br> <br>
-							Phone number *<br> <input type="number" name="number" /><br>
-							<br> <input type="submit" value="ADD" onclick="addValue()" />
+							<label for="name">Name </label><input type="text" name="name"
+								required="required" /><br> <br> <label for="number">Contact
+								number </label><br> <input type="number" name="number"
+								required="required" /><br> <br> <input type="submit"
+								value="ADD" onclick="addValue()" />
 
 						</form>
 
@@ -59,9 +61,9 @@
 	boolean flag;%> <%
  	HttpSession userSession = request.getSession(false);
 
- String name = (String) userSession.getAttribute("UserName");
+ String sessionUser = (String) userSession.getAttribute("UserName");
 
- book = UsersDB.getInstance(name);
+ book = UsersDB.getInstance(sessionUser);
 
  flag = book.getContact().isEmpty();
 
@@ -69,7 +71,7 @@
  %>
 				<h6 style="margin-left: 100px">
 					User :
-					<%=name%>
+					<%=sessionUser%>
 				</h6>
 
 				<h4 style="margin-top: 50px;">Your Contacts</h4> <a

@@ -31,14 +31,14 @@
 	<%
 		HttpSession userSession = request.getSession(false);
 
-	String sessionName = (String) userSession.getAttribute("UserName");
+	String sessionUser = (String) userSession.getAttribute("UserName");
 
-	book = UsersDB.getInstance(sessionName);
+	book = UsersDB.getInstance(sessionUser);
 	%>
 
 	<h6 style="margin-left: 600px">
 		User :
-		<%=sessionName%>
+		<%=sessionUser%>
 	</h6>
 
 	<br>
@@ -75,7 +75,7 @@
 
 			<td>
 
-				<form action="/delete" method="post">
+				<form action="/Delete" method="post">
 
 					<input type="hidden" name="index" value="<%=i%>"> <input
 						type="submit" value="Delete">

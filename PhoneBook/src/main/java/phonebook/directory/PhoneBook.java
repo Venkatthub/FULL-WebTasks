@@ -1,12 +1,13 @@
 package phonebook.directory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import phonebook.Options;
 
 public class PhoneBook implements Options {
 
-	private ArrayList<Contacts> contact = new ArrayList<Contacts>();
+	private List<Contacts> contact = new ArrayList<>();
 
 	@Override
 	public void addContact(String name, String number) {
@@ -26,15 +27,15 @@ public class PhoneBook implements Options {
 	}
 
 	@Override
-	public void editContact(int ContactToEdit, String name, String number) {
+	public void editContact(int contactToEdit, String name, String number) {
 
-		contact.get(ContactToEdit).setName(name);
-		contact.get(ContactToEdit).setNumber(number);
+		contact.get(contactToEdit).setName(name);
+		contact.get(contactToEdit).setNumber(number);
 
 	}
 
 	@Override
-	public ArrayList<Contacts> getContact() {
+	public List<Contacts> getContact() {
 
 		return contact;
 	}

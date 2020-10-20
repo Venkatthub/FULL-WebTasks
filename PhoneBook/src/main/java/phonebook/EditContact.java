@@ -19,12 +19,6 @@ public class EditContact extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private static int index;
-
-	private static String name;
-
-	private static String number;
-
 	private static PhoneBook book;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -37,19 +31,19 @@ public class EditContact extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		index = Integer.parseInt(request.getParameter("index"));
+		int index = Integer.parseInt(request.getParameter("index"));
 
-		name = (String) request.getParameter("name");
+		String name = (String) request.getParameter("name");
 
-		number = (String) request.getParameter("number");
+		String number = (String) request.getParameter("number");
 
 		HttpSession session = request.getSession(false);
 
-		String userSession = (String) session.getAttribute("UserName");
+		String sessionUser = (String) session.getAttribute("UserName");
 
-		book = UsersDB.getInstance(userSession);
+		book = UsersDB.getInstance(sessionUser);
 
-		if (name.isEmpty() || number.isEmpty() || number.length() > 10 || number.length() < 10) {
+		if (number.length() > 10 || number.length() < 10 || name.isEmpty()) {
 
 			response.sendError(404, Options.MESSAGE);
 

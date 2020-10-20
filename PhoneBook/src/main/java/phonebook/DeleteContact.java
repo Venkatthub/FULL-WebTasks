@@ -15,12 +15,10 @@ import phonebook.directory.UsersDB;
 /**
  * Servlet implementation class DeleteContact
  */
-@WebServlet("/delete")
+@WebServlet("/Delete")
 public class DeleteContact extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	private static int index;
 
 	private static PhoneBook book;
 
@@ -34,13 +32,13 @@ public class DeleteContact extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		index = Integer.parseInt(request.getParameter("index"));
+		int index = Integer.parseInt(request.getParameter("index"));
 
 		HttpSession session = request.getSession(false);
 
-		String userSession = (String) session.getAttribute("UserName");
+		String sessionUser = (String) session.getAttribute("UserName");
 
-		book = UsersDB.getInstance(userSession);
+		book = UsersDB.getInstance(sessionUser);
 
 		Contacts contact = book.getContact().get(index);
 

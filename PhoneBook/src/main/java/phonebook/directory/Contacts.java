@@ -5,12 +5,6 @@ public class Contacts {
 	private String name;
 	private String number;
 
-	@Override
-	public String toString() {
-
-		return this.name + " " + this.number;
-	}
-
 	public Contacts(String name, String number) {
 
 		this.name = name;
@@ -36,6 +30,12 @@ public class Contacts {
 	public String getNumber() {
 
 		return number;
+	}
+
+	@Override
+	public String toString() {
+
+		return this.name + " " + this.number;
 	}
 
 }

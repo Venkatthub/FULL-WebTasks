@@ -25,9 +25,9 @@
 	<%
 		HttpSession userSession = request.getSession(false);
 
-	String sessionName = (String) userSession.getAttribute("UserName");
+	String sessionUser = (String) userSession.getAttribute("UserName");
 
-	book = UsersDB.getInstance(sessionName);
+	book = UsersDB.getInstance(sessionUser);
 
 	indexToEdit = Integer.parseInt(request.getParameter("editIndex"));
 
@@ -36,7 +36,7 @@
 
 	<h6 style="margin-left: 600px">
 		User :
-		<%=sessionName%>
+		<%=sessionUser%>
 	</h6>
 	<br>
 	<br>

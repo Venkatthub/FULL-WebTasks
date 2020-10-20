@@ -19,11 +19,7 @@ public class AddContact extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private static String name;
-
-	private static String number;
-
-	private static PhoneBook book;
+	private PhoneBook book;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -32,17 +28,17 @@ public class AddContact extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		name = request.getParameter("name").toLowerCase();
+		String name = request.getParameter("name").toLowerCase();
 
-		number = request.getParameter("number");
+		String number = request.getParameter("number");
 
 		HttpSession session = request.getSession(false);
 
-		String userSession = (String) session.getAttribute("UserName");
+		String sessionUser = (String) session.getAttribute("UserName");
 
-		book = UsersDB.getInstance(userSession);
+		book = UsersDB.getInstance(sessionUser);
 
-		if (number.length() > 10 || number.length() < 10 || name.isEmpty() || number.isEmpty()) {
+		if (number.length() > 10 || number.length() < 10) {
 
 			response.sendError(404, Options.MESSAGE);
 
