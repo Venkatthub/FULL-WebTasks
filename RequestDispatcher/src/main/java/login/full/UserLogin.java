@@ -43,7 +43,8 @@ public class UserLogin extends HttpServlet {
 		if (userCredentials.getUserCredentials().containsKey(name)
 				&& userCredentials.getUserCredentials().containsValue(password)) {
 
-			out.println("<div align=\"center\"> <b> Login Success ! </b></div>");
+			request.getRequestDispatcher("/show").forward(request, response);
+			
 		} else {
 			out.println("Invalid Credentials");
 			request.getRequestDispatcher("index.html").forward(request, response); // To forward the control to the
