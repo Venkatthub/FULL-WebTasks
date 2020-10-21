@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet Filter implementation class AuthorizationToVideo
  */
 
-@WebFilter(filterName = "Authorization", dispatcherTypes = { DispatcherType.FORWARD })
+@WebFilter(filterName = "Authorization", dispatcherTypes = { DispatcherType.INCLUDE })
 public class AuthorizationToVideo implements Filter {
 
 	String user = "venkat";
@@ -43,11 +43,13 @@ public class AuthorizationToVideo implements Filter {
 		String passkey = req.getParameter("key");
 
 		if (name.equalsIgnoreCase(user) && passkey.equalsIgnoreCase(password)) {
+
 			chain.doFilter(request, response);
 
 		} else {
 
 			resp.getWriter().print("You are not authorized to view this video !");
+			resp.getWriter().print("<a href=\"index.html\">Home</a>");
 
 		}
 	}
