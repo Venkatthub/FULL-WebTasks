@@ -18,11 +18,13 @@ public class LogIn extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		resp.setContentType("*/*");
+
 		String name = req.getParameter("userName");
 
-		resp.getWriter().print("<h1>Hi " + name + " welcome ! Login Successful !</h1>");
+		resp.getWriter().print("<h2> Hi " + name + " welcome ! Login Successful !</h2>");
 
-		req.getRequestDispatcher("/Play").include(req, resp);
+		req.getRequestDispatcher("/Play").forward(req, resp);
 
 	}
 

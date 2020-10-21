@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet Filter implementation class AuthorizationToVideo
  */
 
-@WebFilter(filterName = "Authorization", dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.INCLUDE })
+@WebFilter(filterName = "Authorization", dispatcherTypes = { DispatcherType.FORWARD })
 public class AuthorizationToVideo implements Filter {
 
 	String user = "venkat";
