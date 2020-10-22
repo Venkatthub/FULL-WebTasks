@@ -34,11 +34,11 @@
 
 						<form action="/AddContact" method="post">
 
-							<label for="name">Name </label><input type="text" name="name"
-								required="required" /><br> <br> <label for="number">Contact
-								number </label><br> <input type="number" name="number"
-								required="required" /><br> <br> <input type="submit"
-								value="ADD" onclick="addValue()" />
+							<label for="name">Name </label><br>
+							<input type="text" name="name" required="required" /><br> <br>
+							<label for="number">Contact number </label><br> <input
+								type="number" name="number" required="required" /><br> <br>
+							<input type="submit" value="ADD" onclick="addValue()" />
 
 						</form>
 

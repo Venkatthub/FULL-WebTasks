@@ -5,4 +5,4 @@ project.bucket=
 project.id=phonebook-131020
 project.previousVersion.stop=true
 project.promote=true
-project.version=8
+project.version=9
