@@ -13,7 +13,11 @@ import phonebook.directory.UsersDB;
 /**
  * Servlet implementation class SignUp
  */
+<<<<<<< HEAD
 @WebServlet("/CreateAccount")
+=======
+@WebServlet("/signup/CreateAccount")
+>>>>>>> PhoneBookSession
 public class SignUp extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +44,13 @@ public class SignUp extends HttpServlet {
 
 			resp.getWriter().println("<div align=\"center\">Account Created ! Please login to continue</div>");
 
+<<<<<<< HEAD
 			resp.getWriter().println("<a href=\"index.jsp\">Login</a>");
+=======
+			getServletContext().log("A new user added ::" + name);
+
+			resp.getWriter().println("<a href=\"\\\">Login</a>");
+>>>>>>> PhoneBookSession
 
 		}
 

@@ -44,7 +44,11 @@ public class DeleteContact extends HttpServlet {
 
 		book.deleteContact(contact);
 
+<<<<<<< HEAD
 		response.sendRedirect("AllContacts.jsp");
+=======
+		response.sendRedirect("/login/home/contacts");
+>>>>>>> PhoneBookSession
 
 	}
 

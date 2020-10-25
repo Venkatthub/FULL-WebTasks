@@ -45,7 +45,11 @@ public class AddContact extends HttpServlet {
 		} else {
 
 			book.addContact(name, number);
+<<<<<<< HEAD
 			response.sendRedirect("HomePage.jsp");
+=======
+			response.sendRedirect("/login/home");
+>>>>>>> PhoneBookSession
 
 		}
 

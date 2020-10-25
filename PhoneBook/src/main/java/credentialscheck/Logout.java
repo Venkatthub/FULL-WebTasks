@@ -19,9 +19,17 @@ public class Logout extends HttpServlet {
 
 		HttpSession userSession = req.getSession();
 
+<<<<<<< HEAD
 		userSession.invalidate();
 
 		resp.sendRedirect("index.jsp");
+=======
+		getServletContext().log("User Logged out ::" + userSession.getAttribute("UserName"));
+
+		userSession.invalidate();
+
+		resp.sendRedirect("/");
+>>>>>>> PhoneBookSession
 
 	}
 

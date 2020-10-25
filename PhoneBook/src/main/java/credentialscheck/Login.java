@@ -30,7 +30,13 @@ public class Login extends HttpServlet {
 
 			session.setAttribute("UserName", name);
 
+<<<<<<< HEAD
 			resp.sendRedirect("HomePage.jsp");
+=======
+			getServletContext().log("User Logged in ::" + name);
+
+			resp.sendRedirect("/login/home");
+>>>>>>> PhoneBookSession
 
 		} else {
 

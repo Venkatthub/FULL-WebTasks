@@ -51,7 +51,11 @@ public class EditContact extends HttpServlet {
 
 			book.editContact(index, name, number);
 
+<<<<<<< HEAD
 			response.sendRedirect("AllContacts.jsp");
+=======
+			response.sendRedirect("/login/home/contacts");
+>>>>>>> PhoneBookSession
 
 		}
 
