@@ -1,4 +1,4 @@
-package phonebook.directory;
+package database;
 
 public class Contacts {
 

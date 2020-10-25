@@ -2,7 +2,7 @@ package phonebook;
 
 import java.util.List;
 
-import phonebook.directory.Contacts;
+import database.Contacts;
 
 public interface Options {
 

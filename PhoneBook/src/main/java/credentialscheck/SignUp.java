@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import phonebook.directory.UsersDB;
+import database.UsersDB;
 
 /**
  * Servlet implementation class SignUp

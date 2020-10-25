@@ -1,7 +1,6 @@
-<%@page import="phonebook.directory.UsersDB"%>
-<%@page import="phonebook.directory.PhoneBook"%>
-<%@page import="phonebook.Options"%>
-<%@page import="phonebook.directory.Contacts"%>
+<%@page import="database.UsersDB"%>
+<%@page import="database.PhoneBook"%>
+<%@page import="database.Contacts"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

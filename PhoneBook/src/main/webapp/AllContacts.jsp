@@ -1,6 +1,6 @@
-<%@page import="phonebook.directory.UsersDB"%>
-<%@page import="phonebook.directory.Contacts"%>
-<%@page import="phonebook.directory.PhoneBook"%>
+<%@page import="database.UsersDB"%>
+<%@page import="database.Contacts"%>
+<%@page import="database.PhoneBook"%>
 <%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%@ include file="header.html"%>
-	
+
 	<h3 align="center">Your Contacts</h3>
 
 	<a href="/login/home"><button>HOME</button></a>

@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import phonebook.directory.Contacts;
-import phonebook.directory.PhoneBook;
-import phonebook.directory.UsersDB;
+import database.Contacts;
+import database.PhoneBook;
+import database.UsersDB;
 
 /**
  * Servlet implementation class DeleteContact

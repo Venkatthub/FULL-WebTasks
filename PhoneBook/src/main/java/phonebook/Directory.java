@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import phonebook.directory.Contacts;
-import phonebook.directory.PhoneBook;
+import database.Contacts;
 
 /**
  * Servlet implementation class Directory
