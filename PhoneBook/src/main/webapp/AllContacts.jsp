@@ -15,8 +15,34 @@
 	<h3 align="center">Your Contacts</h3>
 	<a href="index.jsp"><button>HOME</button></a>
 
+<<<<<<< Updated upstream
 	<%!Options book;
 	String action;%>
+=======
+	<a href="/login/home"><button>HOME</button></a>
+
+	<%!PhoneBook book;%>
+
+
+
+	<%
+		try {
+		HttpSession userSession = request.getSession(false);
+
+		String sessionUser = (String) userSession.getAttribute("UserName");
+
+		book = UsersDB.getInstance(sessionUser);
+	%>
+
+	<h6 style="margin-left: 600px">
+		User :
+		<%=sessionUser%>
+	</h6>
+
+	<br>
+	<br>
+
+>>>>>>> Stashed changes
 	<table>
 		<%
 			book = (PhoneBook) application.getAttribute("option");
@@ -30,7 +56,13 @@
 				</h5>
 			</td>
 			<td>
+<<<<<<< Updated upstream
 				<form action="EditContact.jsp" method="post">
+=======
+
+				<form action="/login/home/contacts/edit" method="post">
+
+>>>>>>> Stashed changes
 					<input type="hidden" name="editIndex" value="<%=i%>"> <input
 						type="submit" value="Edit">
 				</form>
@@ -48,5 +80,16 @@
 			%>
 		
 	</table>
+<<<<<<< Updated upstream
+=======
+
+	<%
+		} catch (Exception e) {
+
+	response.sendRedirect("/");
+	}
+	%>
+
+>>>>>>> Stashed changes
 </body>
 </html>
