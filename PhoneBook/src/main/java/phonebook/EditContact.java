@@ -45,17 +45,13 @@ public class EditContact extends HttpServlet {
 
 		if (number.length() > 10 || number.length() < 10 || name.isEmpty()) {
 
-			response.sendError(404, Options.MESSAGE);
+			response.sendError(404, Options.message);
 
 		} else {
 
 			book.editContact(index, name, number);
 
-<<<<<<< HEAD
-			response.sendRedirect("AllContacts.jsp");
-=======
 			response.sendRedirect("/login/home/contacts");
->>>>>>> PhoneBookSession
 
 		}
 

@@ -40,16 +40,12 @@ public class AddContact extends HttpServlet {
 
 		if (number.length() > 10 || number.length() < 10) {
 
-			response.sendError(404, Options.MESSAGE);
+			response.sendError(404, Options.message);
 
 		} else {
 
 			book.addContact(name, number);
-<<<<<<< HEAD
-			response.sendRedirect("HomePage.jsp");
-=======
 			response.sendRedirect("/login/home");
->>>>>>> PhoneBookSession
 
 		}
 

@@ -15,7 +15,7 @@ import phonebook.directory.UsersDB;
 /**
  * Servlet implementation class DeleteContact
  */
-@WebServlet("/Delete")
+@WebServlet("/delete")
 public class DeleteContact extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -44,11 +44,7 @@ public class DeleteContact extends HttpServlet {
 
 		book.deleteContact(contact);
 
-<<<<<<< HEAD
-		response.sendRedirect("AllContacts.jsp");
-=======
 		response.sendRedirect("/login/home/contacts");
->>>>>>> PhoneBookSession
 
 	}
 
