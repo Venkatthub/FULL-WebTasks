@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="content-type"
+	content="application/xhtml+xml; charset=UTF-8" />
+<title>Human Resource</title>
+</head>
+
+<body>
+	<h3>You can manage employee information in this application !</h3>
+
+
+	<form action="/stored" method="post">
+		<div class="container">
+			<label for="name"> Name :</label><input type="text" name="name"
+				required="required" /> <label for="id"> ID :</label><input
+				type="number" name="id" required="required" /> <label for="mail">
+				Email ID :</label><input type="email" required="required" name="mail" /><label
+				for="branch"> Department :</label><input type="text" name="dept"
+				required="required" /> <input type="submit" value="Submit" />
+		</div>
+	</form>
+	<br>
+	<br>
+	<form action="/display">
+		<input type="submit" value="Show all Data" />
+	</form>
+
+</body>
+</html>
