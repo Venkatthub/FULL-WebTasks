@@ -1,4 +1,4 @@
-package database;
+package phonebook.database;
 
 public class Contacts {
 

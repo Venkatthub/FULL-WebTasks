@@ -1,6 +1,6 @@
-<%@page import="database.UsersDB"%>
-<%@page import="database.PhoneBook"%>
-<%@page import="database.Contacts"%>
+<%@page import="phonebook.database.UsersDB"%>
+<%@page import="phonebook.database.PhoneBook"%>
+<%@page import="phonebook.database.Contacts"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@
 		<%=contact%></p>
 
 	<%
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
 
 	response.sendRedirect("/");
 	}
@@ -70,7 +70,9 @@
 			type="hidden" name="index" value="<%=indexToEdit%>" /> <br> <input
 			type="submit" value="Confirm" />
 	</form>
+
 	<br>
+
 	<a href="/login/home/contacts"><button>Cancel</button></a>
 
 

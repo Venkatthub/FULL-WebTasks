@@ -1,6 +1,6 @@
-<%@page import="database.UsersDB"%>
-<%@page import="database.Contacts"%>
-<%@page import="database.PhoneBook"%>
+<%@page import="phonebook.database.UsersDB"%>
+<%@page import="phonebook.database.Contacts"%>
+<%@page import="phonebook.database.PhoneBook"%>
 <%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -78,7 +78,7 @@
 
 
 	<%
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
 
 	response.sendRedirect("/");
 	}

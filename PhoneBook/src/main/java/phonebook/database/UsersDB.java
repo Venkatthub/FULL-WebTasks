@@ -1,4 +1,4 @@
-package database;
+package phonebook.database;
 
 import java.util.HashMap;
 import java.util.Map;

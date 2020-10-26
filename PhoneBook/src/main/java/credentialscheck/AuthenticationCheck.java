@@ -1,6 +1,6 @@
 package credentialscheck;
 
-import database.UsersDB;
+import phonebook.database.UsersDB;
 
 public class AuthenticationCheck {
 

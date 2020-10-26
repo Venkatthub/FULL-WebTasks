@@ -1,21 +1,31 @@
-<%@page import="database.PhoneBook"%>
-<%@page import="database.UsersDB"%>
-<%@page import="database.Contacts"%>
+<%@page import="phonebook.database.PhoneBook"%>
+<%@page import="phonebook.database.UsersDB"%>
+<%@page import="phonebook.database.Contacts"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="ISO-8859-1">
+
 <title>PhoneBook - Home</title>
+
 </head>
+
 <body>
 
 	<%@ include file="header.html"%>
 
 	<div style="margin-left: 600px;">
+
 		<a href="/logout"><button>Logout</button></a>
+
 	</div>
 
 
@@ -56,15 +66,21 @@
 			</td>
 
 			<td><%!PhoneBook book;
-	boolean flag;
-	String sessionUser;%> <%
+	String sessionUser;
+	boolean flag;%> <%
  	try {
+
  	HttpSession userSession = request.getSession(false);
+
  	sessionUser = (String) userSession.getAttribute("UserName");
+
  	book = UsersDB.getInstance(sessionUser);
+
  	flag = book.getContact().isEmpty();
+
  	pageContext.setAttribute("flag", flag, PageContext.PAGE_SCOPE);
  %>
+
 				<h6 style="margin-left: 100px">
 					User :
 					<%=sessionUser%>
@@ -101,7 +117,10 @@
 					</c:otherwise>
 
 				</c:choose> <br> <%
- 	} catch (Exception e) {
+ 	} catch (NullPointerException e) {
+
+ getServletContext().log(e.getMessage());
+
  response.sendRedirect("/");
  }
  %></td>

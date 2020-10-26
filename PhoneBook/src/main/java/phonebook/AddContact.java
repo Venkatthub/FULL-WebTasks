@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import database.PhoneBook;
-import database.UsersDB;
+import phonebook.database.PhoneBook;
+import phonebook.database.UsersDB;
 
 /**
  * Servlet implementation class AddContact
@@ -45,6 +45,7 @@ public class AddContact extends HttpServlet {
 		} else {
 
 			book.addContact(name, number);
+
 			response.sendRedirect("/login/home");
 
 		}

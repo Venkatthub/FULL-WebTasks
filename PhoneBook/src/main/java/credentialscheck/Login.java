@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 
 		if (checkLoginCredentials) {
 
-			HttpSession session = req.getSession();
+			HttpSession session = req.getSession(true);
 
 			session.setAttribute("UserName", name);
 

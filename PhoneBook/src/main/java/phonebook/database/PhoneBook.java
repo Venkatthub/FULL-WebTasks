@@ -1,4 +1,4 @@
-package database;
+package phonebook.database;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import phonebook.Options;
 
 public class PhoneBook implements Options {
 
-	private static ArrayList<Contacts> contact = new ArrayList<Contacts>();
+	private ArrayList<Contacts> contact = new ArrayList<Contacts>();
 
 	@Override
 	public void addContact(String name, String number) {

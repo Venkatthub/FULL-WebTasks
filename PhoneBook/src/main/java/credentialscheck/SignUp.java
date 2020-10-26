@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.UsersDB;
+import phonebook.database.UsersDB;
 
 /**
  * Servlet implementation class SignUp
@@ -32,7 +32,7 @@ public class SignUp extends HttpServlet {
 
 			resp.getWriter().println("<div align=\"center\">User Name already taken. please enter a new one</div>");
 
-			req.getRequestDispatcher("SignUp.jsp").include(req, resp);
+			req.getRequestDispatcher("/SignUp.jsp").include(req, resp);
 
 		} else {
 
