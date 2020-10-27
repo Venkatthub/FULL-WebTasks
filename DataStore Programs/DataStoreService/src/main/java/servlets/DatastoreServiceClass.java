@@ -24,7 +24,7 @@ public class DatastoreServiceClass {
 		emp.setProperty("Employee Email ID", mail);
 
 		emp.setProperty("Joining date", "now");
-
+		
 		DatastoreService store = DatastoreServiceFactory.getDatastoreService();
 
 		store.put(emp);

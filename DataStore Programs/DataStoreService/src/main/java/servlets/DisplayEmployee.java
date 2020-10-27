@@ -1,18 +1,17 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.cloud.datastore.Datastore;
-import com.google.cloud.datastore.DatastoreOptions;
-import com.google.cloud.datastore.Entity;
-import com.google.cloud.datastore.Query;
-import com.google.cloud.datastore.QueryResults;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
 
 /**
  * Servlet implementation class DisplayEmployee
@@ -21,12 +20,12 @@ import com.google.cloud.datastore.QueryResults;
 public class DisplayEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	Datastore datastore = DatastoreOptions.newBuilder().build().getService();
+	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Query<Entity> query = Query.newEntityQueryBuilder().setKind("Employees").build();
+//		Query query = Query.newEntityQueryBuilder().setKind("Employees").build();
 
 //		String gcQuery = "Select * from Employees";
 //
@@ -34,14 +33,40 @@ public class DisplayEmployee extends HttpServlet {
 
 //		PreparedQuery pq=pre
 
-		QueryResults<Entity> result = datastore.run(query);
+//		QueryResults<Entity> result = datastore.run(query);
+//
+//		PrintWriter out = resp.getWriter();
+//
+//		while (result.hasNext()) {
+//
+//			out.print(result.next());
+//
+//		}
 
-		PrintWriter out = resp.getWriter();
+//		Key k = KeyFactory.createKey("Employees", 101L);
+//
+//		try {
+//
+//			System.out.println(datastore.get(k));
+//
+//		} catch (EntityNotFoundException e1) {
+//
+//			e1.printStackTrace();
+//		}
 
-		while (result.hasNext()) {
+		Query query = new Query("Employees");
 
-			out.print(result.next());
+		PreparedQuery ps = datastore.prepare(query);
 
+		for (Entity e : ps.asIterable()) {
+
+			String name = e.getProperty("Employee Name").toString();
+			int id = Integer.valueOf(e.getProperty("Employee ID").toString());
+			String mail = e.getProperty("Employee Email ID").toString();
+			String dept = e.getProperty("Employee Department").toString();
+			String date = e.getProperty("Joining date").toString();
+
+			resp.getWriter().print(name + " " + id + " " + mail + " " + dept + " " + date + "\n");
 		}
 
 	}
