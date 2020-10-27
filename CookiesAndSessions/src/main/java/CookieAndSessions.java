@@ -16,11 +16,20 @@ public class CookieAndSessions extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
-		
-		}
-	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		String name = "venkat";
+
+		Cookie c = new Cookie("UserName", name);
+
+		c.setMaxAge(60 * 2);
+
+		c.setHttpOnly(true);
+
+		c.setSecure(true);
+
+		resp.addCookie(c);
+
+	}
+
 }
