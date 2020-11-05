@@ -68,6 +68,7 @@ public class DisplayEmployee extends HttpServlet {
 
 			resp.getWriter().print(name + " " + id + " " + mail + " " + dept + " " + date + "\n");
 		}
+		
 
 	}
 
